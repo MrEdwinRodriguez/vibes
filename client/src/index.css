@@ -1,0 +1,95 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 79% 56%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 0 79% 56%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 79% 56%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-custom-black text-foreground;
+  }
+}
+
+.waveform {
+  @apply flex items-end h-12 space-x-0.5;
+}
+
+.waveform-bar {
+  @apply bg-custom-red rounded-t w-1 animate-wave;
+  animation-delay: calc(var(--delay) * 100ms);
+}
+
+.scroll-container {
+  @apply overflow-y-auto max-h-[500px] pr-2;
+  scrollbar-width: thin;
+  scrollbar-color: theme('colors.custom.red') theme('colors.custom.darkGray');
+}
+
+.scroll-container::-webkit-scrollbar {
+  @apply w-1;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  @apply bg-custom-darkGray rounded-full;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  @apply bg-custom-red rounded-full;
+}
+
+.genre-card {
+  @apply relative overflow-hidden rounded-lg transition-all duration-300 bg-gradient-to-br from-custom-darkGray to-black border-2 border-custom-darkGray hover:border-custom-red;
+}
+
+.genre-card-content {
+  @apply p-6 relative z-10;
+}
+
+.genre-card-overlay {
+  @apply absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300;
+}
+
+.genre-card:hover .genre-card-overlay {
+  @apply bg-opacity-30;
+}
+
+.audio-player {
+  @apply flex items-center gap-3 bg-custom-darkGray rounded-lg p-3;
+}
